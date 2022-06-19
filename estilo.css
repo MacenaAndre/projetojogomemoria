@@ -21,23 +21,23 @@ body {
     font-weight: 700;
 }
 .cards{
-    padding: 0px 25px;
-    max-width: 950px;
+    max-width: 1050px;
     margin-top: 55px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .card {
     width: 117px;
     height: 143px;
     border-radius: 5px;
-    margin-bottom: 35px;
+    margin: 0px 15px 35px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #A7E9AF;
     border: 1px solid #99CEA8;
+    box-sizing: border-box;
 }
 img {
     width: 100px;
