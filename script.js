@@ -141,6 +141,7 @@ let game6 = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "me
             }
         }
     }
+
     distribuirCartas();
 
     function selecionarCarta(elemento) {
@@ -170,28 +171,34 @@ let game6 = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "me
                 document.querySelector(".clicked1").classList.remove("clicked1");
                 document.querySelector(".clicked2").classList.remove("clicked2");
             }
+
+            function fimDeJogo() {
+                alert(`Você venceu em ${numJogadas} jogadas`)
+                for(reinicio = prompt('Deseja reiniciar o jogo? (sim ou não)'); (reinicio !== "sim" && reinicio !== "não");
+                              reinicio = prompt('Deseja reiniciar o jogo? (sim ou não)')) {
+                              }
+                            if(reinicio === "sim") {
+                                numJogadas = 0;
+                                distribuirCartas()
+                            } else if( reinicio === "não") {
+                            }
+                        }
          
             if(document.querySelector(".clicked1 .front").innerHTML === document.querySelector(".clicked2 .front").innerHTML) {
                 document.querySelector(".clicked1").classList.remove("clicked1");
                 document.querySelector(".clicked2").classList.remove("clicked2");
                 pares--;
                 if(pares === 0) {
-                    alert(`Você venceu em ${numJogadas} jogadas`);
-                    for(reinicio = prompt('Deseja reiniciar o jogo? (sim ou não)'); (reinicio !== "sim" && reinicio !== "não");
-                      reinicio = prompt('Deseja reiniciar o jogo? (sim ou não)')) {
-                      }
-                    }
-                    if(reinicio === "sim") {
-                        numJogadas = 0;
-                        distribuirCartas()
-                    } else if( reinicio === "não") {
-                    }
-            } else {
-                setTimeout(desviraCarta, 1000);   
-            }
+                    setTimeout(fimDeJogo, 200);
+                    
+                  
+                } 
+        } else {
+            setTimeout(desviraCarta, 1000);   
         }
-
-
     }
+    }
+    
+    
 
     

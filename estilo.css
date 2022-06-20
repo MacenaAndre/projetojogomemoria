@@ -27,7 +27,18 @@ body {
     justify-content: center;
     flex-wrap: wrap;
 }
-.card {
+.card{
+    width: 117px;
+    height: 143px;
+    border-radius: 5px;
+    margin: 0px 15px 35px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all .9s;
+}
+.back {
     width: 117px;
     height: 143px;
     border-radius: 5px;
@@ -38,6 +49,20 @@ body {
     background-color: #A7E9AF;
     border: 1px solid #99CEA8;
     box-sizing: border-box;
+    transition: all .9s;
+}
+.front {
+    width: 117px;
+    height: 143px;
+    border-radius: 5px;
+    margin: 0px 15px 35px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+    box-sizing: border-box;
+    transition: all .9s;
 }
 img {
     width: 100px;
