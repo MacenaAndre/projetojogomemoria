@@ -154,7 +154,7 @@ let game6 = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "me
         elemento.querySelector(".front").classList.remove("escondido");
         
         let reinicio;
-        
+
         if((numJogadas % 2 !== 0)) {
             elemento.classList.add("clicked1");   
         }
@@ -177,15 +177,15 @@ let game6 = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "me
                 pares--;
                 if(pares === 0) {
                     alert(`Você venceu em ${numJogadas} jogadas`);
-                    reinicio = prompt('Deseja reiniciar o jogo?');
+                    for(reinicio = prompt('Deseja reiniciar o jogo? (sim ou não)'); (reinicio !== "sim" && reinicio !== "não");
+                      reinicio = prompt('Deseja reiniciar o jogo? (sim ou não)')) {
+                      }
+                    }
                     if(reinicio === "sim") {
                         numJogadas = 0;
-                        distribuirCartas();
-                    } else if(reinicio === "nao") {
-                    } else {
-                        reinicio = prompt("Deseja reiniciar o jogo");
+                        distribuirCartas()
+                    } else if( reinicio === "não") {
                     }
-                }
             } else {
                 setTimeout(desviraCarta, 1000);   
             }
