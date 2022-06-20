@@ -1,5 +1,7 @@
 let numJogadas = 0;
 
+let pares = 0;
+
 let nomes = ["bobross", "explody", "fiesta", "metal", "revertit", "triplets", "unicorn"];
 
 let game1 = ["bobross", "bobross", "explody", "explody"];
@@ -30,6 +32,8 @@ let game6 = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "me
               ((Number(quantidade)%2) === 1) || isNaN(quantidade)) {
                  quantidade = prompt("Por favor, digite um par de 4 a 14(4, 6, 8, 10, 12 ou 14)!");
         }   
+
+        pares = Number(quantidade) / 2;
 
         if(Number(quantidade) === 4) {
             elemento.innerHTML = "";
@@ -148,24 +152,46 @@ let game6 = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "me
 
         elemento.querySelector(".back").classList.add("escondido");
         elemento.querySelector(".front").classList.remove("escondido");
-
-        function desviraCarta() {
-            elemento.querySelector(".back").classList.remove("escondido");
-            elemento.querySelector(".front").classList.add("escondido");
-        }
-
+        
+        let reinicio;
+        
         if((numJogadas % 2 !== 0)) {
             elemento.classList.add("clicked1");   
         }
 
         if((numJogadas % 2 === 0)) {
             elemento.classList.add("clicked2");
+
+            function desviraCarta() {
+                document.querySelector(".clicked1 .back").classList.remove("escondido");
+                document.querySelector(".clicked1 .front").classList.add("escondido");
+                document.querySelector(".clicked2 .back").classList.remove("escondido");
+                document.querySelector(".clicked2 .front").classList.add("escondido");
+                document.querySelector(".clicked1").classList.remove("clicked1");
+                document.querySelector(".clicked2").classList.remove("clicked2");
+            }
          
             if(document.querySelector(".clicked1 .front").innerHTML === document.querySelector(".clicked2 .front").innerHTML) {
                 document.querySelector(".clicked1").classList.remove("clicked1");
                 document.querySelector(".clicked2").classList.remove("clicked2");
+                pares--;
+                if(pares === 0) {
+                    alert(`Você venceu em ${numJogadas} jogadas`);
+                    reinicio = prompt('Deseja reiniciar o jogo?');
+                    if(reinicio === "sim") {
+                        numJogadas = 0;
+                        distribuirCartas();
+                    } else if(reinicio === "nao") {
+                    } else {
+                        reinicio = prompt("Deseja reiniciar o jogo");
+                    }
+                }
+            } else {
+                setTimeout(desviraCarta, 1000);   
             }
         }
 
+
     }
+
     
